@@ -4,6 +4,7 @@ from django.http import HttpResponse #CLASS HANDLES SENDING A TYPE OF RESPONSE
 
 from django.views.generic.base import TemplateView
 
+
 class Band:
     def __init__(self, name, image, bio):
         self.name = name 
@@ -20,6 +21,25 @@ Band("The Rolling Stones", "https://media.gq-magazine.co.uk/photos/5d1396d42881c
 Band("Sublime","https://consequence.net/wp-content/uploads/2021/11/sublime-pawn-shop-origins-photo-by-john-dunne.jpg?quality=80&w=1031&h=580&crop=1&resize=1031%2C580&strip", "Sublime was an American reggae rock and ska punk band from Long Beach, California, formed in 1988.[1] The band's line-up, consistent throughout its duration, consisted of Bradley Nowell (vocals and guitar), Eric Wilson (bass), and Bud Gaugh (drums)"),
 Band("Kings of Leon","https://o.aolcdn.com/images/dar/5845cadfecd996e0372f/5c33e5cee347f3dc8e29ecb921c265cc9205296a/aHR0cDovL3d3dy5ibG9nY2RuLmNvbS93d3cuam95c3RpcS5jb20vbWVkaWEvMjAwOS8wNy9raW5nc29mbGVvbjA3MTYwOS5qcGc=", "Kings of Leon is an American rock band formed in Nashville, Tennessee, in 1999. The band is composed of brothers Caleb, Nathan and Jared Followill, and their cousin Matthew Followill. Mt. Juliet, Tennessee, U.S."),
 ]
+
+
+class Album:
+    def __init__(self, band, title):
+        self.band = band 
+        self.title = title
+
+
+albums = [ 
+    Album("The Red Hot Chilli Peppers", "Stadium Arcadium"),
+    Album("Black Sabbath", "Iron Man"),
+    Album("Led Zeppelin", "Physical Graffiti"),
+    Album("Pink Floyd", "Wish You Were Here"),
+    Album("The Rolling Stones", "Tattoo You"),
+    Album("Sublime", "40 Oz. To Freedom"),
+    Album("Kings of Leon", "Mechanical Bull")
+
+]
+
 
 
 # Create your views here.
