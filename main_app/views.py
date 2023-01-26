@@ -61,3 +61,11 @@ class BandList(TemplateView):
         context["bands"] = bands # this is where we add the key into our context object for the view to use
         return context
 
+
+class AlbumList(TemplateView):
+    template_name = "album_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["albums"] = albums
+        return albums
