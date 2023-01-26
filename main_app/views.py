@@ -13,7 +13,6 @@ class Home(TemplateView):
     template_name = "home.html"
 
 
-# class About(View):
-
-#     def get(self, request):
-#         return HttpResponse("Band Collector About")
+#UPDATED ABOUT CLASS TO EXTEND TEMPLATEVIEW
+class About(TemplateView):
+    template_name = "about.html"
