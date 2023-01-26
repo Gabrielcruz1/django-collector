@@ -1,7 +1,9 @@
 from django.urls import path
 from . import views
 
-# this like app.use() in express
+# ADD OUR ROUTES BELOW
+# SIMILAR TO APP.USE() IN EXPRESS 
 urlpatterns = [
+    path('', views.Home.as_view(), name="home")
 
 ]
