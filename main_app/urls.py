@@ -9,6 +9,8 @@ urlpatterns = [
     path('bands/', views.BandList.as_view(), name="band_list"),
     path('albums/', views.AlbumList.as_view(), name="album_list"),
     #CREATE ROUTE BELOW
-    path('bands/new/', views.BandCreate.as_view(), name="band_create")
+    path('bands/new/', views.BandCreate.as_view(), name="band_create"),
+    #NEW ROUTE FOR DETAIL
+    path('bands/<int:pk>/', views.BandDetail.as_view(), name="band_detail")
 
 ]

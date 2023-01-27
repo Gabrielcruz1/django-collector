@@ -4,7 +4,8 @@ from django.http import HttpResponse #CLASS HANDLES SENDING A TYPE OF RESPONSE
 
 from django.views.generic.base import TemplateView
 # This will import the class we are extending 
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView 
 from .models import Band
 
 
@@ -71,6 +72,10 @@ class BandCreate(CreateView):
     fields = ['name', 'image', 'bio', 'verified_band']
     template_name = "band_create.html"
     success_url = "/bands/"
+
+class BandDetail(DetailView):
+    model = Band
+    template_name = "band_detail.html"
 
 
 class AlbumList(TemplateView):
