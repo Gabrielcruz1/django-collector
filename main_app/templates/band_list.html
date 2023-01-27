@@ -21,7 +21,7 @@
   <a class="button is-dark" href="{% url 'band_create' %}">Add Band</a>
 </form>
 <div class="gallery">
-  {% for band in bands %}
+  {% for band in Bands %}
   <a href="{% url 'band_detail' band.pk %}">
     <div class="card">
       <div class="card-image">
