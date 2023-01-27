@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 # This will import the class we are extending 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView 
+from django.urls import reverse
 from .models import Band
 
 
@@ -71,7 +72,8 @@ class BandCreate(CreateView):
     model = Band
     fields = ['name', 'image', 'bio', 'verified_band']
     template_name = "band_create.html"
-    success_url = "/bands/"
+    def get_success_url(self):
+        return reverse('band_detail', kwargs={'pk': self.object.pk})
 
 class BandDetail(DetailView):
     model = Band
@@ -81,8 +83,13 @@ class BandUpdate(UpdateView):
     model = Band
     fields = ['name', 'image', 'bio', 'verified_band']
     template_name = "band_update.html"
-    success_url = "/bands/"
+    def get_success_url(self):
+        return reverse('band_detail', kwargs={'pk': self.object.pk})
 
+class BandDelete(DeleteView):
+    model = Band
+    template_name = "band_delete_confirmation.html"
+    success_url = "/bands/"
 
 
 
