@@ -53,7 +53,11 @@ class BandList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # context["bands"] = bands # this is where we add the key into our context object for the view to use
-        context["band"] = Band.objects.all() # USING THE MODEL TO QUERY THE DATABASE
+        name = self.request.GET.get("name")
+        if name != None:
+            context["band"] = Band.objects.filter(name__icontains=name) # USING THE MODEL TO QUERY THE DATABASE
+        else:
+            context["band"] = Band.objects.all()
         return context
 
 
