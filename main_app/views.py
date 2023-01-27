@@ -77,6 +77,18 @@ class BandDetail(DetailView):
     model = Band
     template_name = "band_detail.html"
 
+class BandUpdate(UpdateView):
+    model = Band
+    fields = ['name', 'image', 'bio', 'verified_band']
+    template_name = "band_update.html"
+    success_url = "/bands/"
+
+
+
+
+
+
+
 
 class AlbumList(TemplateView):
     template_name = "album_list.html"
