@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse #CLASS HANDLES SENDING A TYPE OF RESPONSE
 
 from django.views.generic.base import TemplateView
+# This will import the class we are extending 
+from django.views.generic.edit import CreateView
 from .models import Band
 
 
@@ -61,6 +63,14 @@ class BandList(TemplateView):
             context["band"] = Band.objects.all()
             context["header"] = "Trending Bands"
         return context
+
+
+#CRUD BELOW
+class BandCreate(CreateView):
+    model = Band
+    fields = ['name', 'image', 'bio', 'verified_band']
+    template_name = "band_create.html"
+    success_url = "/bands/"
 
 
 class AlbumList(TemplateView):
